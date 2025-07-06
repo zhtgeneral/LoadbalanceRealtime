@@ -12,9 +12,6 @@ export const io = new Server(server, {
   cors: { origin: '*' },
 });
 
-export const busyServers = new Set();
-export const servers = ['server-a', 'server-b']; 
-
 app.use(cors());
 app.use(express.json());
 
