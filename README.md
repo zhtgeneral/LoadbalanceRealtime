@@ -56,3 +56,17 @@ npm run dev
 This will:
 
 - ⚛️ Launch the React development server
+
+## 🧪 Running Tests
+
+### Integration Tests (run from /server directory)
+
+```bash
+npm run test:integration
+```
+
+This will:
+
+- ✅ Run all Mocha/Chai test suites
+- 📊 Generate test coverage reports
+- 🔍 Verify API endpoint functionality
