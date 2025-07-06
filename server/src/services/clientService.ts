@@ -1,6 +1,6 @@
-import { io } from '../src';
+import { io } from '../index';
 
-export class ClientService {
+export default class ClientService {
   static async broadcastToClients(event) {
     io.emit('log_event', event);
     console.log('/api/events POST Broadcasting to clients');

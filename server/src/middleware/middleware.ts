@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import Redis from "ioredis";
 
-import { servers } from "../src";
+import { servers } from "../index";
 
 const redis = new Redis();
 
@@ -18,6 +18,7 @@ export async function loadBalance(req: Request, res: Response, next: NextFunctio
   }
 
   await redis.sadd(BUSY_KEY, server); 
+    
   req.body.server = server;
 
   process(server);  

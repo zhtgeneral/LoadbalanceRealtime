@@ -25,7 +25,7 @@ export default function App() {
 
   const sendEvent = async () => {
     if (!input.trim()) return;
-    await axios.post('http://localhost:3001/events', { message: input });
+    await axios.post('http://localhost:3001/api/events', { message: input });
     setInput('');
   };
 

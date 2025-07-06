@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import { DBService } from '../services/databaseService';
-import { NotificationService } from '../services/notificationService';
-import { ClientService } from '../services/clientService';
 import { Request, Response } from 'express';
+
+import DBService from '../services/databaseService';
+import NotificationService from '../services/notificationService';
+import ClientService from '../services/clientService';
 
 export function postEvent(req: Request, res: Response): void {
   const { message, server } = req.body;
