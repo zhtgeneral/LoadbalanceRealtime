@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@types/node": "^24.0.10",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "http": "^0.0.1-security",
+    "ioredis": "^5.6.1",
+    "socket.io": "^4.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  },
+  "scripts": {
+    "start": "npm run redis && npx ts-node src/index.ts",
+    "redis": "docker rm -f redis-server && docker run --name redis-server -p 6379:6379 -d redis"
+  }
+}
