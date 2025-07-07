@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 
+import HomePage from './pages/Home';
+
 const socket = io('http://localhost:3001');
 
-interface LogEvent {
+export interface LogEvent {
   id: string;
   message: string;
   timestamp: string;
@@ -23,33 +25,18 @@ export default function App() {
     };
   }, []);
 
-  const sendEvent = async () => {
+  async function sendEvent() {
     if (!input.trim()) return;
     await axios.post('http://localhost:3001/api/events', { message: input });
     setInput('');
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-2">Real-Time Logs</h1>
-      <div className="flex mb-4">
-        <input
-          className="border p-2 flex-1 mr-2"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type an event message..."
-        />
-        <button className="bg-blue-500 text-white px-4 py-2" onClick={sendEvent}>
-          Send
-        </button>
-      </div>
-      <ul>
-        {logs.map((log) => (
-          <li key={log.id} className="border-b py-1">
-            [{log.timestamp}] {log.message}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <HomePage 
+      logs={logs}
+      input={input}
+      setInput={setInput}
+      sendEvent={sendEvent}
+    />
   );
 }
