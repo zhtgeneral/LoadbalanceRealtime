@@ -1,6 +1,6 @@
 import Redis from "ioredis";
 
-const redis = new Redis();
+const redis = new Redis({ host: 'redis' });
 
 const busyServers = new Set();
 const servers = ['server-a', 'server-b']; 

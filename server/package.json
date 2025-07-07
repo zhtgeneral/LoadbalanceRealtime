@@ -22,6 +22,7 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
+    "dev": "npx ts-node src/index.ts",
     "start": "npm run redis && npx ts-node src/index.ts",
     "redis": "docker rm -f redis-server && docker run --name redis-server -p 6379:6379 -d redis",
     "test:integration": "mocha -r ts-node/register tests/integration/*.test.ts --timeout 20000 --exit"
